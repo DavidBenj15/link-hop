@@ -1,0 +1,128 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('./Inter/static/Inter-Regular.ttf') format('inter');
+}
+
+* {
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+body {
+  background-color: rgba(40, 44, 52, 255);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: rgb(114, 172, 229);;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, .9);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 700px;
+}
+
+.formInput {
+  outline: none;
+  display: block;
+  background: rgba(black, .1);
+  width: 60%;
+  border: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  color: black;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: semibold;
+  line-height: inherit;
+  transition: 0.3s ease;
+}
+
+.label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.button {
+  background-color: rgb(114, 172, 229);
+  border-radius: 4px;
+  border: 0;
+  box-shadow: rgba(114, 172, 229, .1) 0 -1px 3px 0 inset,rgba(0,44,97,.1) 0 3px 6px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inherit;
+  font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0;
+  min-height: 56px;
+  min-width: 120px;
+  padding: 16px 20px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  transition: all .2s cubic-bezier(.22, .61, .36, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.button:hover {
+  background-color: rgba(114, 172, 229, .9);
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 1px white;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 16px 44px;
+    min-width: 150px;
+  }
+}
+
+.errorMessage {
+  color: #D96C6C;
+  margin-top: 10px;
+}
+
+.fadeOut {
+  animation: fadeout 1s forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+import styles from '../styles/HomeComponent.module.css';
+import ResponseMessage from './ResponseMessage';
+// import { response } from 'express';
 
 const HomeComponent = () => {
     const [original, setOriginal] = useState('');
     const [short, setShort] = useState('');
+    const [responseType, setResponseType] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [typing, setTyping] = useState(false);
 
     const handleSubmit = async (e) => {
         // prevent page reload on submit
@@ -22,20 +27,22 @@ const HomeComponent = () => {
             if (response.ok) {
                 // if response is ok
                 // TODO: clear form and display success message
+                setResponseType('success');
                 console.log(`Added ${original} as ${short}`);
             } else {
                 // if response is not ok
-                const errorMessage = await response.text();
+                setErrorMessage(await response.text());
                 console.error(`Failed to add ${original} as ${short}: ${errorMessage}`);
-                setErrorMessage(errorMessage);
+                setResponseType('error');
             }
         } catch (error) {
             console.error('Error:', error);
-            setErrorMessage('Internal Server Error');
+            setResponseType('internal server error');
         }
     };
 
     const handleChange = (e) => {
+        setTyping(true);
         const { name, value } = e.target;
         if (name === 'original') {
             setOriginal(value);
@@ -47,34 +54,41 @@ const HomeComponent = () => {
     return (
         // TODO: make this look pretty
         // TODO: remvoe the error message when the user starts typing again
-        <div>
-            <h1>Home</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
+        // TODO: add a success message
+        <div className={styles.container}>
+            <div className={styles.titleContainer}>
+                <h1 className={styles.title}>LinkHop</h1>
+            </div>
+            <form onSubmit={handleSubmit} className={styles.form}>
+                <label className={styles.label}>
                     Original URL:
-                    <input
-                        type="text"
-                        name="original"
-                        value={original}
-                        onChange={handleChange}
-                        required
-                    />
                 </label>
+                <input
+                    type="text"
+                    name="original"
+                    value={original}
+                    onChange={handleChange}
+                    required
+                    className={styles.formInput}
+                    />
                 <br />
-                <label>
+                <label className={styles.label}>
                     Short URL:
-                    <input
-                        type="text"
-                        name="short"
-                        value={short}
-                        onChange={handleChange}
-                        required
-                    />
                 </label>
+                <input
+                    type="text"
+                    name="short"
+                    value={short}
+                    onChange={handleChange}
+                    required
+                    className={styles.formInput}
+                    />
                 <br />
-                <button type="submit">Add Link</button>
-                {errorMessage && <p>{errorMessage}</p>}
+                <button 
+                    type="submit"
+                    className={styles.button}>Add Link</button>
             </form>
+            <ResponseMessage responseType={responseType} errorMessage={errorMessage}/>
         </div>
     )
 }

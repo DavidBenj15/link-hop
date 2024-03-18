@@ -73,7 +73,7 @@ app.post('/add', async (req, res) => {
   } catch (error) {
     // Check if short link already exists
     if (error.code === 11000 && error.keyPattern && error.keyPattern.short) { 
-      return res.status(409).send('Short link already exists');
+      return res.status(409).send(`Short link /${short} already exists`);
     }
     // Handle other errors
     console.error(error);

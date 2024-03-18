@@ -5,6 +5,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import styles from '../styles/RedirectComponent.module.css';
 // NOTE: "import { response } from 'express';", which is sometimes randomly added by VS Code, will cause an error
 
 const RedirectComponent = (props) => {
@@ -41,15 +42,26 @@ const RedirectComponent = (props) => {
         return (
             // This HTML is returned if the link is not found
             // TODO: Add better looking HTML
-            <h1>Link not found</h1>
+            <div className={styles.container}>
+                <h1 className={styles.errorMessage}>Error: link not found</h1>
+                <button 
+                    onClick={() => window.location.href = 'http://localhost:3000/'}
+                    className={styles.button}
+                >LinkHop</button>
+            </div>
+            
+        )
+    } else {
+        return (
+            // This HTML is returned for a successful redirect
+            // TODO: Add better looking HTML
+            <div className={styles.container}>
+                <h1 className={styles.redirectMessage}>Redirecting...</h1>
+            </div>
         )
     }
 
-    return (
-        // This HTML is returned for a successful redirect
-        // TODO: Add better looking HTML
-        <h1>Redirecting...</h1>
-    )
+
 }
 
 export default RedirectComponent;
