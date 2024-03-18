@@ -1,0 +1,11 @@
+.container {
+    margin: 20px;
+}
+
+.success {
+    color: rgba(164,225,118,255)
+}
+
+.error {
+    color: rgba(255,96,112,255);
+}
