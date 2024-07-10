@@ -3,7 +3,7 @@
 This site allows users to create custom shortened URLs, similar to bitly. Custom links can accessed at linkhop.com/*custom-link-name* !
 
 ## Developer Instructions
-This website is not accessible to the public. However, developers should feel free to clone this repository and host it themselves if they desire. There are only a couple of steps required to do so:
+This website is not currently hosted. However, developers should feel free to clone this repository and host it themselves if they desire. There are only a couple of steps required to do so:
 
 ### 1. Install Dependencies
 In the project directory, open your terminal and execute the following command:\
