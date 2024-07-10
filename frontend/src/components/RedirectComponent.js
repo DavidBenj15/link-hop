@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 import styles from '../styles/RedirectComponent.module.css';
 // NOTE: "import { response } from 'express';", which is sometimes randomly added by VS Code, will cause an error
 
-const RedirectComponent = (props) => {
+const RedirectComponent = () => {
     let { shortLink } = useParams();
     const [linkFound, setLinkFound] = React.useState(true);
 
@@ -44,10 +44,7 @@ const RedirectComponent = (props) => {
             // TODO: Add better looking HTML
             <div className={styles.container}>
                 <h1 className={styles.errorMessage}>Error: link not found</h1>
-                <button 
-                    onClick={() => window.location.href = 'http://localhost:3000/'}
-                    className={styles.button}
-                >LinkHop</button>
+                <a href='http://localhost:3000/' className={styles.anchor}>Back to LinkHop</a>
             </div>
             
         )
