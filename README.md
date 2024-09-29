@@ -1,6 +1,8 @@
 # LinkHop 🔗
 
-This site allows users to create custom shortened URLs, similar to bitly. Custom links can accessed at linkhop.com/*custom-link-name* !
+This site allows users to create custom shortened URLs, similar to bitly. Custom links can accessed at *base-url*/*custom-link-name* !
+
+<img src="./resources/screenshot.png" width="700" alt="Screenshot of LinkHop website">
 
 ## Developer Instructions
 This website is not currently hosted. However, developers should feel free to clone this repository and host it themselves if they desire. There are only a couple of steps required to do so:

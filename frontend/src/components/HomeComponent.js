@@ -59,7 +59,6 @@ const HomeComponent = () => {
             <div className={styles.titleContainer}>
                 <h1 className={styles.title}>LinkHop</h1>
             </div>
-            <InfoButton />
             <form onSubmit={handleSubmit} className={styles.form}>
                 <label className={styles.label}>
                     Original URL:
@@ -90,6 +89,7 @@ const HomeComponent = () => {
                     className={styles.button}>Add Link</button>
             </form>
             <ResponseMessage responseType={responseType} errorMessage={errorMessage}/>
+            <InfoButton />
         </div>
     );
 };
