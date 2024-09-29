@@ -1,4 +1,4 @@
-# LinkHop
+# LinkHop 🔗
 
 This site allows users to create custom shortened URLs, similar to bitly. Custom links can accessed at linkhop.com/*custom-link-name* !
 
